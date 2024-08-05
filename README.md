@@ -47,6 +47,12 @@ This way, we created a dynamic, fair, and educational game experience that promo
 
 ## Datasets
 
+| Name | Author | Link |
+| ---|---| ---|
+| Carbon Catalogue | Christoph J Meinrenken, Daniel Chen, Ricardo A Esparza, Venkat Iyer, Aruna Prasad, Sally Paridis, Erika Whillas | [Springer](https://springernature.figshare.com/articles/dataset/The_Carbon_Catalogue_public_database_Carbon_footprints_of_866_commercial_products_across_8_industry_sectors_and_5_continents/16908979?backTo=%2Fcollections%2FThe_Carbon_Catalogue_Carbon_footprints_of_866_commercial_products_from_8_industry_sectors_and_5_continents%2F5408100&file=31271269) |
+
+More details about the datasets used in this project can be found [here](data/README.md).
+
 ## Models
 
 ## Tools
