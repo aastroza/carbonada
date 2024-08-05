@@ -1,4 +1,4 @@
-# carbon
+# Carbon
 
 Our project helps people learn about their carbon footprint with a fun game powered by AI. We use LLMs to estimate the carbon impact of different things and create an engaging way to understand and care about the environment.
 
@@ -26,6 +26,25 @@ Mike Bernes-Lee [^2] defines the term "carbon footprint" as follows:
 
 ## Exploration
 
+## Game Design
+
+We created an educational game styled like [*Timeline*](https://boardgamegeek.com/boardgame/128664/timeline) focused on the carbon footprint.
+
+### Gameplay
+
+- Players position cards with different concepts on a "carbon line" based on their estimated carbon footprint, with the least carbon-generating items on the left and the most on the right.
+- For example, if an apple is on the left of the screen and a plane trip is on the right, the player needs to think of a concept like a hamburger and place it correctly between the apple and the plane trip.
+- The system uses our carbon footprint estimation model to evaluate the correctness of each move.
+
+### LLM as Game Judge
+
+- We implemented an AI agent to supervise the game in real-time.
+- This agent detects strategies to "cheat" the system, such as multiplying concepts (e.g., "two apples").
+- The agent evaluates the validity and originality of each move, blocking unfair or repetitive ones.
+- In case of a block, the system asks the player to propose a new concept, keeping the game challenging and educational.
+
+This way, we created a dynamic, fair, and educational game experience that promotes learning about the carbon footprint in an entertaining manner.
+
 ## Datasets
 
 ## Models
@@ -38,4 +57,4 @@ Mike Bernes-Lee [^2] defines the term "carbon footprint" as follows:
 
 ## Acknowledgment
 
-We would like to take this opportunity to thank our mentors for their invaluable guidance and support: [Alonso Silva](https://github.com/alonsosilvaallende), [Eduardo Graells-Garrido](https://github.com/zorzalerrante), [Rodrigo Zigante](https://x.com/rzigante) and [Renzo Lüttges](https://x.com/renzolut).
+We would like to take this opportunity to thank our mentors for their invaluable guidance and support: [Alonso Silva](https://github.com/alonsosilvaallende), [Eduardo Graells-Garrido](https://github.com/zorzalerrante), [Sergio Concha](https://cl.linkedin.com/in/sergio-concha-4032508), [Rodrigo Zigante](https://www.linkedin.com/in/rzigante/) and [Renzo Lüttges](https://x.com/renzolut).
