@@ -4,7 +4,7 @@ Our project helps people learn about their carbon footprint with a fun game powe
 
 ## Motivation
 
-We are addressing the urgent need to increase awareness about carbon footprints. Many people do not understand the impact of their daily choices on emissions. For example, an apple generates 35g of CO2, while a portion of beef produces 7,700g[^1]. Calculating and visualizing the environmental impact is complex, and current tools are tedious and unattractive. We aim to create a fun, accessible educational experience to promote carbon literacy.
+We are addressing the urgent need to increase awareness about carbon footprints. Many people do not understand the impact of their daily choices on emissions. For example, an apple generates 35g of CO2, while a portion of beef produces 7,700g.[^1] Calculating and visualizing the environmental impact is complex, and current tools are tedious and unattractive. We aim to create a fun, accessible educational experience to promote carbon literacy.
 
 [^1]: [Clever Carbon](https://clevercarbon.io/aboutclevercarbon/)
 
@@ -36,6 +36,6 @@ Mike Bernes-Lee [^2] defines the term "carbon footprint" as follows:
 
 [Alonso Astroza](https://github.com/aastroza), [Víctor Navarro](https://github.com/Vokturz), [Luis Miranda](https://github.com/totoiii), [Claudia Navarro](https://github.com/ClaudiaRayen) and [Bastián Araya](https://github.com/xSharky).
 
-## Advisors
+## Acknowledgment
 
-[Alonso Silva](https://github.com/alonsosilvaallende), [Eduardo Graells-Garrido](https://github.com/zorzalerrante), [Rodrigo Zigante](https://x.com/rzigante) and [Renzo Lüttges](https://x.com/renzolut).
+We would like to take this opportunity to thank our mentors for their invaluable guidance and support: [Alonso Silva](https://github.com/alonsosilvaallende), [Eduardo Graells-Garrido](https://github.com/zorzalerrante), [Rodrigo Zigante](https://x.com/rzigante) and [Renzo Lüttges](https://x.com/renzolut).
