@@ -26,6 +26,97 @@ Mike Bernes-Lee [^2] defines the term "carbon footprint" as follows:
 
 ## Exploration
 
+### Carbon Footprint Estimation Model
+
+To estimate the carbon footprint of a product or service, we utilize two main tables:
+
+1. **Product Carbon Footprint Table**:
+   - Contains specific data on the carbon footprint of various products from multiple sources.
+
+   | product      | carbon footprint | source        |
+   |--------------|------------------|---------------|
+   | Apple        | 0.3 kg CO2e      | Source A      |
+   | Banana       | 0.2 kg CO2e      | Source B      |
+   | Orange       | 0.25 kg CO2e     | Source C      |
+
+2. **Industry Carbon Footprint Table**:
+   - Provides information on the carbon footprint associated with different industries based on economic value in dollars and the country.
+
+   | industry     | carbon footprint per USD | country   | source        |
+   |--------------|--------------------------|-----------|---------------|
+   | Agriculture  | 0.5 kg CO2e/USD          | USA       | Source D      |
+   | Manufacturing| 0.8 kg CO2e/USD          | Germany   | Source E      |
+   | Transport    | 1.0 kg CO2e/USD          | China     | Source F      |
+
+### Estimation Process
+
+1. **Semantic Search in Product Table**:
+   - When a user inputs, for example, "an apple," the model performs a semantic search in the product column.
+   - It returns the row with the smallest semantic distance.
+   - **Confidence Levels**:
+     - High Confidence: `distance < u1`.
+     - Medium Confidence: `u1 <= distance < u2`.
+
+2. **Search in Industry Table**:
+   - If the distance is greater than `u2`, the second table is used.
+   - An LLM determines the relevant industry and estimates its value in USD.
+   - The closest row in the Industry Carbon Footprint Table is returned.
+   - The result is considered to have low confidence.
+
+### Estimation Function
+
+The function takes the user's input and returns:
+   - The estimated carbon footprint.
+   - The confidence level of the estimation (high, medium, low).
+   - The source used for the estimation.
+
+#### Example
+
+**Input**: "an apple"
+
+**Output**:
+```json
+{
+  "estimated_carbon_footprint": "0.3 kg CO2e",
+  "confidence_level": "high",
+  "source": "Source A"
+}
+```
+
+### Handling Complex Queries
+
+For more complex queries, such as "an apple and a glass of water," we use function calling to decompose the query into individual calls to our estimation function. The final result is the aggregated response.
+
+#### Example
+
+**Input**: "an apple and a glass of water"
+
+**Process**:
+1. Decompose the query into "an apple" and "a glass of water".
+2. Estimate the carbon footprint for each item.
+3. Aggregate the results.
+
+**Output**:
+```json
+{
+  "items": [
+    {
+      "item": "apple",
+      "estimated_carbon_footprint": "0.3 kg CO2e",
+      "confidence_level": "high",
+      "source": "Source A"
+    },
+    {
+      "item": "glass of water",
+      "estimated_carbon_footprint": "0.05 kg CO2e",
+      "confidence_level": "medium",
+      "source": "Source B"
+    }
+  ],
+  "total_estimated_carbon_footprint": "0.35 kg CO2e"
+}
+```
+
 ## Game Design
 
 We created an educational game styled like [*Timeline*](https://boardgamegeek.com/boardgame/128664/timeline) focused on the carbon footprint.
