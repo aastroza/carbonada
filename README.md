@@ -36,7 +36,7 @@ We created an educational game styled like [*Timeline*](https://boardgamegeek.co
 - For example, if an apple is on the left of the screen and a plane trip is on the right, the player needs to think of a concept like a hamburger and place it correctly between the apple and the plane trip.
 - The system uses our carbon footprint estimation model to evaluate the correctness of each move.
 
-### LLM as Game Judge
+### LLM as a Game Judge
 
 - We implemented an AI agent to supervise the game in real-time.
 - This agent detects strategies to "cheat" the system, such as multiplying concepts (e.g., "two apples").
