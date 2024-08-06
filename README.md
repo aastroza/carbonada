@@ -147,10 +147,6 @@ This way, we created a dynamic, fair, and educational game experience that promo
 
 More details about the datasets used in this project can be found [here](data/README.md).
 
-## Models
-
-## Tools
-
 ## Team
 
 [Alonso Astroza](https://github.com/aastroza), [Víctor Navarro](https://github.com/Vokturz), [Luis Miranda](https://github.com/totoiii), [Claudia Navarro](https://github.com/ClaudiaRayen) and [Bastián Araya](https://github.com/xSharky).
