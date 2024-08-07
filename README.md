@@ -10,7 +10,7 @@ We are addressing the urgent need to increase awareness about carbon footprints.
 
 Our project uses AI in two main components:
 
-- *Carbon Footprint Estimation Model:* It estimates the carbon footprint of any concept entered by the user using GPT-4 and semantic search.
+- *Carbon Footprint Estimation Model:* It estimates the carbon footprint of any concept entered by the user using GPT-4, function calling and semantic search.
 - *Educational Game:* Players place cards on a "carbon line" based on their estimated carbon footprint. An AI agent supervises the game, ensuring fairness and evaluating the originality of each move.
 
 Our innovative approach combines advanced AI with game mechanics to create an engaging educational experience about carbon footprints.

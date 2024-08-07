@@ -6,7 +6,7 @@ authors = [
     { name = "Alonso Astroza Tagle", email = "alonsoastroza@gmail.com" }
 ]
 dependencies = [
-    "openai>=1.37.0",
+    "openai>=1.40.0",
     "pandas>=2.2.2",
     "jupyter>=1.0.0",
 ]
