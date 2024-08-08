@@ -154,3 +154,6 @@ More details about the datasets used in this project can be found [here](data/RE
 ## Acknowledgment
 
 We would like to take this opportunity to thank our mentors for their invaluable guidance and support: [Alonso Silva](https://github.com/alonsosilvaallende), [Eduardo Graells-Garrido](https://github.com/zorzalerrante), [Sergio Concha](https://cl.linkedin.com/in/sergio-concha-4032508), [Rodrigo Zigante](https://www.linkedin.com/in/rzigante/) and [Renzo Lüttges](https://x.com/renzolut).
+
+
+## References
