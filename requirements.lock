@@ -43,6 +43,7 @@ charset-normalizer==3.3.2
     # via requests
 colorama==0.4.6
     # via ipython
+    # via loguru
     # via tqdm
 comm==0.2.2
     # via ipykernel
@@ -55,6 +56,8 @@ defusedxml==0.7.1
     # via nbconvert
 distro==1.9.0
     # via openai
+et-xmlfile==1.1.0
+    # via openpyxl
 executing==2.0.1
     # via stack-data
 fastjsonschema==2.20.0
@@ -146,6 +149,8 @@ jupyterlab-server==2.27.3
     # via notebook
 jupyterlab-widgets==3.0.11
     # via ipywidgets
+loguru==0.7.2
+    # via carbon
 markupsafe==2.1.5
     # via jinja2
     # via nbconvert
@@ -173,6 +178,8 @@ notebook-shim==0.2.4
 numpy==2.0.1
     # via pandas
 openai==1.40.0
+    # via carbon
+openpyxl==3.1.5
     # via carbon
 overrides==7.7.0
     # via jupyter-server
@@ -323,3 +330,5 @@ websocket-client==1.8.0
     # via jupyter-server
 widgetsnbextension==4.0.11
     # via ipywidgets
+win32-setctime==1.1.0
+    # via loguru
