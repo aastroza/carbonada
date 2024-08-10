@@ -1,4 +1,4 @@
-from carbon.schemas import ProductDatasetEntry, IndustryDatasetEntry
+from carbon.schemas import ProductDatasetEntry
 import pandas as pd
 from pydantic import ValidationError
 from loguru import logger
@@ -21,16 +21,6 @@ def build_table(df: pd.DataFrame, source: str) -> pd.DataFrame:
                 dataset.append(
                     ProductDatasetEntry(product = row['Product name (and functional unit)'] + ' - ' + str(row['Product detail']),
                                         carbon_footprint = row["Product's carbon footprint (PCF, kg CO2e)"],
-                                        source = source)
-                )
-            except ValidationError as e:
-                logger.error(f"Validation error in row {i}: {e}")
-        elif source == 'mrio':
-            try:
-                dataset.append(
-                    IndustryDatasetEntry(industry = row['Product name (and functional unit)'] + ' - ' + str(row['Product detail']),
-                                        country = "",
-                                        carbon_footprint_per_USD = row["Product's carbon footprint (PCF, kg CO2e)"],
                                         source = source)
                 )
             except ValidationError as e:
