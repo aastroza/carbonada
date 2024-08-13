@@ -6,7 +6,7 @@ To clone the repository, click the green "Code" button on the GitHub repository 
 
 ![github](imgs/github.png)
 
-I recommend using [GitHub Desktop](https://github.com/apps/desktop), which provides a user-friendly graphical interface for managing repositories.
+We recommend using [GitHub Desktop](https://github.com/apps/desktop), which provides a user-friendly graphical interface for managing repositories.
 
 ![github desktop](imgs/github-desktop.png)
 
