@@ -119,7 +119,7 @@ For more complex queries, such as "an apple and a glass of water," we use functi
 
 ## Game Design
 
-We created an educational game styled like [*Timeline*](https://boardgamegeek.com/boardgame/128664/timeline) focused on the carbon footprint.
+We created an educational game styled like [*Timeline*](https://boardgamegeek.com/boardgame/128664/timeline) focused on the carbon footprint. The frontend code is available [here](https://github.com/Vokturz/carbon-front).
 
 ### Gameplay
 
