@@ -118,7 +118,7 @@ class Industry(str, Enum):
     activities_of_households_as_employers_of_domestic_personnel = "Activities Of Households As Employers Of Domestic Personnel"
 
 
-class Query(BaseModel):
+class IndustryQuery(BaseModel):
     industry: Industry
     cost_reasoning: str = Field(..., description="Reasoning behind the estimated cost of the product/service in USD")
     cost: float = Field(..., description="Estimated cost of the product/service in USD")

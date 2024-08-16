@@ -1,8 +1,8 @@
 from openai import OpenAI
-from carbon.schemas import Query
+from carbon.schemas import IndustryQuery
 from loguru import logger
 
-def get_industry(product: str, country: str, model: str) -> Query:
+def get_industry(product: str, country: str, model: str) -> IndustryQuery:
     client = OpenAI()
     try:
         completion = client.beta.chat.completions.parse(
@@ -18,7 +18,7 @@ def get_industry(product: str, country: str, model: str) -> Query:
                 },
             ],
             temperature=0.0,
-            response_format=Query,
+            response_format=IndustryQuery,
         )
 
         message = completion.choices[0].message
