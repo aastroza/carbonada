@@ -33,20 +33,20 @@ To estimate the carbon footprint of a product or service, we utilize two main ta
 1. **Product Carbon Footprint Table**:
    - Contains specific data on the carbon footprint of various products from multiple sources.
 
-   | product      | carbon footprint | source        |
+   | product      | carbon footprint [kg CO2e] | source        |
    |--------------|------------------|---------------|
-   | Apple        | 0.3 kg CO2e      | Source A      |
-   | Banana       | 0.2 kg CO2e      | Source B      |
-   | Orange       | 0.25 kg CO2e     | Source C      |
+   | Apple        | 0.3      | Source A      |
+   | Banana       | 0.2      | Source B      |
+   | Orange       | 0.25     | Source C      |
 
 2. **Industry Carbon Footprint Table**:
    - Provides information on the carbon footprint associated with different industries based on economic value in dollars and the country.
 
-   | industry     | carbon footprint per USD | country   | source        |
+   | industry     | carbon footprint per USD [kg CO2e/USD] | country   | source        |
    |--------------|--------------------------|-----------|---------------|
-   | Agriculture  | 0.5 kg CO2e/USD          | USA       | Source D      |
-   | Manufacturing| 0.8 kg CO2e/USD          | Germany   | Source E      |
-   | Transport    | 1.0 kg CO2e/USD          | China     | Source F      |
+   | Agriculture  | 0.5           | USA       | Source D      |
+   | Manufacturing| 0.8           | Germany   | Source E      |
+   | Transport    | 1.0          | China     | Source F      |
 
 ### Estimation Process
 
@@ -77,7 +77,8 @@ The function takes the user's input and returns:
 **Output**:
 ```json
 {
-  "estimated_carbon_footprint": "0.3 kg CO2e",
+  "estimated_carbon_footprint": "0.3",
+  "carbon_footprint_unit": "kg CO2e",
   "confidence_level": "high",
   "source": "Source A"
 }
@@ -102,18 +103,21 @@ For more complex queries, such as "an apple and a glass of water," we use functi
   "items": [
     {
       "item": "apple",
-      "estimated_carbon_footprint": "0.3 kg CO2e",
+      "estimated_carbon_footprint": "0.3",
+      "carbon_footprint_unit": "kg CO2e",
       "confidence_level": "high",
       "source": "Source A"
     },
     {
       "item": "glass of water",
-      "estimated_carbon_footprint": "0.05 kg CO2e",
+      "estimated_carbon_footprint": "0.05",
+      "carbon_footprint_unit": "kg CO2e",
       "confidence_level": "medium",
       "source": "Source B"
     }
   ],
-  "total_estimated_carbon_footprint": "0.35 kg CO2e"
+  "total_estimated_carbon_footprint": "0.35",
+  "carbon_footprint_unit": "kg CO2e",
 }
 ```
 
