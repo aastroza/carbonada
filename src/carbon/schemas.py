@@ -123,6 +123,11 @@ class IndustryQuery(BaseModel):
     cost_reasoning: str = Field(..., description="Reasoning behind the estimated cost of the product/service in USD")
     cost: float = Field(..., description="Estimated cost of the product/service in USD")
 
+class Confidence(str, Enum):
+    low = "low"
+    medium = "medium"
+    high = "high"
+
 class Estimation(BaseModel):
     product: str
     industry: str
@@ -131,5 +136,6 @@ class Estimation(BaseModel):
     country: str
     cost: float
     cost_reasoning: str
+    confidence: Confidence
     source: str
     model: str

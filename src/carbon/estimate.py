@@ -1,6 +1,6 @@
 import pandas as pd
 from carbon.llm import get_industry
-from carbon.schemas import Estimation
+from carbon.schemas import Estimation, Confidence
 
 df = pd.read_excel('../data/processed/industry.xlsx')
 df['industry'] = [s.replace('\xa0', '').strip() for s in df['industry']]
@@ -50,6 +50,7 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
                     country=country,
                     cost=query.cost,
                     cost_reasoning=query.cost_reasoning,
+                    confidence=Confidence.low,
                     source="SWC MRIO Dataset",
                     model=model,
     )
