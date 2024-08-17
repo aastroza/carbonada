@@ -48,6 +48,10 @@ colorama==0.4.6
 comm==0.2.2
     # via ipykernel
     # via ipywidgets
+contourpy==1.2.1
+    # via matplotlib
+cycler==0.12.1
+    # via matplotlib
 debugpy==1.8.2
     # via ipykernel
 decorator==5.1.1
@@ -62,6 +66,8 @@ executing==2.0.1
     # via stack-data
 fastjsonschema==2.20.0
     # via nbformat
+fonttools==4.53.1
+    # via matplotlib
 fqdn==1.5.1
     # via jsonschema
 h11==0.14.0
@@ -149,11 +155,15 @@ jupyterlab-server==2.27.3
     # via notebook
 jupyterlab-widgets==3.0.11
     # via ipywidgets
+kiwisolver==1.4.5
+    # via matplotlib
 loguru==0.7.2
     # via carbon
 markupsafe==2.1.5
     # via jinja2
     # via nbconvert
+matplotlib==3.9.2
+    # via carbon
 matplotlib-inline==0.1.7
     # via ipykernel
     # via ipython
@@ -176,6 +186,8 @@ notebook-shim==0.2.4
     # via jupyterlab
     # via notebook
 numpy==2.0.1
+    # via contourpy
+    # via matplotlib
     # via pandas
 openai==1.40.0
     # via carbon
@@ -188,6 +200,7 @@ packaging==24.1
     # via jupyter-server
     # via jupyterlab
     # via jupyterlab-server
+    # via matplotlib
     # via nbconvert
     # via qtconsole
     # via qtpy
@@ -197,6 +210,8 @@ pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
+pillow==10.4.0
+    # via matplotlib
 platformdirs==4.2.2
     # via jupyter-core
 prometheus-client==0.20.0
@@ -219,9 +234,12 @@ pygments==2.18.0
     # via jupyter-console
     # via nbconvert
     # via qtconsole
+pyparsing==3.1.2
+    # via matplotlib
 python-dateutil==2.9.0.post0
     # via arrow
     # via jupyter-client
+    # via matplotlib
     # via pandas
 python-json-logger==2.0.7
     # via jupyter-events
