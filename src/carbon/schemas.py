@@ -117,6 +117,9 @@ class Industry(str, Enum):
     other_personal_service_activities = "Other Personal Service Activities"
     activities_of_households_as_employers_of_domestic_personnel = "Activities Of Households As Employers Of Domestic Personnel"
 
+class RawQuery(BaseModel):
+    carbon_footprint_reasoning: str = Field(..., description="Reasoning behind the estimated carbon footprint of the product/service in kg CO2e")
+    carbon_footprint: float = Field(..., description="Estimated carbon footprint of the product/service in kg CO2e")
 
 class IndustryQuery(BaseModel):
     industry: Industry
