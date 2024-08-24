@@ -120,6 +120,15 @@ For more complex queries, such as "an apple and a glass of water," we use functi
   "carbon_footprint_unit": "kg CO2e",
 }
 ```
+## Evaluation
+
+We tested our custom GPT-4 models, labeled as *carbonada*, against standard GPT-4 models. The results show that our *carbonada* models are more accurate, with lower Mean Absolute Error (`MAE`). While these models take a bit more time to run, the difference in speed isn’t a big issue for our game, and we can work on making them faster later.
+
+![](/reports/figures/model_comparison_mae.png)
+
+In regression tasks, relying solely on `MAE` can be misleading, especially for more challenging problems. To address this, we also evaluated our models based on how often they provided the most accurate predictions. The chart shows the average rank of each model, where a lower rank indicates better performance. Our custom *carbonada* models consistently outperformed the baseline models, demonstrating that they are more accurate overall, even if `MAE` alone doesn't fully capture this improvement.
+
+![](/reports/figures/model_ranking_mae.png)
 
 ## Game Design
 

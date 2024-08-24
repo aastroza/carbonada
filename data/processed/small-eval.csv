@@ -1,0 +1,25 @@
+model,item,country,predicted,expected,time
+gpt-4o-2024-08-06,a disposable diaper,United States,0.25,0.13,2.601987838745117
+gpt-4o-2024-08-06_carbonada,a disposable diaper,United States,0.15900302307033212,0.13,6.061638116836548
+gpt-4o-2024-08-06,a roll of toilet paper,United States,0.5,0.73,2.105587959289551
+gpt-4o-2024-08-06_carbonada,a roll of toilet paper,United States,1.217186948879162,0.73,7.1548120975494385
+gpt-4o-2024-08-06,a pint of milk,United States,0.5,0.9,1.9712755680084229
+gpt-4o-2024-08-06_carbonada,a pint of milk,United States,1.5368496878860114,0.9,6.518228769302368
+gpt-4o-2024-08-06,a paperback book,United States,2.71,1.0,2.1108202934265137
+gpt-4o-2024-08-06_carbonada,a paperback book,United States,4.057289829597207,1.0,3.4311881065368652
+gpt-4o-2024-08-06,a night in a hotel,United States,20.0,75.0,3.810718536376953
+gpt-4o-2024-08-06_carbonada,a night in a hotel,United States,70.81880259979843,75.0,7.036403656005859
+gpt-4o-2024-08-06,a week’s food shopping,United States,75.0,81.0,2.2014143466949463
+gpt-4o-2024-08-06_carbonada,a week’s food shopping,United States,80.00778683824484,81.0,5.822561979293823
+gpt-4o-mini-2024-07-18,a disposable diaper,United States,0.2,0.13,7.481648921966553
+gpt-4o-mini-2024-07-18_carbonada,a disposable diaper,United States,0.22260423229846496,0.13,4.430918216705322
+gpt-4o-mini-2024-07-18,a roll of toilet paper,United States,0.5,0.73,1.6411490440368652
+gpt-4o-mini-2024-07-18_carbonada,a roll of toilet paper,United States,0.3766822601357387,0.73,4.49741005897522
+gpt-4o-mini-2024-07-18,a pint of milk,United States,0.57,0.9,1.5562357902526855
+gpt-4o-mini-2024-07-18_carbonada,a pint of milk,United States,0.9221098127316067,0.9,4.346944570541382
+gpt-4o-mini-2024-07-18,a paperback book,United States,1.5,1.0,1.4933240413665771
+gpt-4o-mini-2024-07-18_carbonada,a paperback book,United States,0.6450700366938328,1.0,4.4862706661224365
+gpt-4o-mini-2024-07-18,a night in a hotel,United States,20.0,75.0,8.437777757644653
+gpt-4o-mini-2024-07-18_carbonada,a night in a hotel,United States,70.81880259979843,75.0,4.394802570343018
+gpt-4o-mini-2024-07-18,a week’s food shopping,United States,225.0,81.0,2.1384315490722656
+gpt-4o-mini-2024-07-18_carbonada,a week’s food shopping,United States,75.33645202714773,81.0,6.375034332275391

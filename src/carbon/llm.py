@@ -1,6 +1,9 @@
 from openai import OpenAI
 from carbon.schemas import IndustryQuery, RawQuery
 from loguru import logger
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_industry(product: str, country: str, model: str) -> IndustryQuery:
     client = OpenAI()
