@@ -25,6 +25,6 @@ if st.button("Estimate!"):
         response_data = json.loads(response.text)
         # Print or display the response
         estimation = Estimation(**response_data)
-        st.markdown(estimation_to_string(estimation))
+        st.markdown(estimation_to_string(estimation, language='english'))
     else:
         st.warning("Please enter a product to estimate the carbon footprint.")
