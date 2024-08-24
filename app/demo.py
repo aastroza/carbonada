@@ -1,9 +1,6 @@
 import streamlit as st
 import requests
 import json
-from carbon.estimate import estimation_to_string
-from carbon.schemas import Estimation
-
 
 url = st.secrets["api_url"]
 st.title("Carbonada")
@@ -24,7 +21,6 @@ if st.button("Estimate!"):
         response = requests.request("POST", url, headers=headers, data=payload)
         response_data = json.loads(response.text)
         # Print or display the response
-        estimation = Estimation(**response_data)
-        st.markdown(estimation_to_string(estimation, language='english'))
+        st.markdown(response_data["explanation"])
     else:
         st.warning("Please enter a product to estimate the carbon footprint.")

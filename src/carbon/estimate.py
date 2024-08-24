@@ -56,6 +56,17 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
         carbon_footprint, carbon_footprint_per_USD = estimate_carbon_footprint_using_industry(query.industry.value, query.cost, country)
         carbon_footprint_call, carbon_footprint_per_USD_call = estimate_carbon_footprint_using_industry("Information Service Activities", cost, country)
 
+        explanation = (
+            f"La **huella de carbono estimada** de **{product}** en **{country}** "
+            f"es de **{carbon_footprint:.2f} kg CO2e**.\n\n"
+            f"Esta estimación se calculó utilizando datos de **{source}**, "
+            f"que proporciona información sobre la huella de carbono por USD "
+            f"({carbon_footprint_per_USD:.2f}) para la industria {industry} en {country}.\n"
+            f"El costo total del producto fue estimado por {model}, "
+            f"ascendiendo a {cost:.2f} USD.\n\n"
+            f"El razonamiento detrás de esta estimación es el siguiente: {query.cost_reasoning}\n\n"
+            f"La huella de carbono estimada de esta consulta a la API es {carbon_footprint_call*1000:.3f} g CO2e."
+        )
         estimation = Estimation(
                         product=product,
                         industry=query.industry,
@@ -68,6 +79,7 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
                         confidence=Confidence.low,
                         similarity=0,
                         source="SWC MRIO Dataset",
+                        explanation=explanation,
                         model=model,
         )
     else:
