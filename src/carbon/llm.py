@@ -69,3 +69,45 @@ def estimate_raw(product: str, country: str, model: str) -> (RawQuery, float):
     except Exception as e:
         logger.error(f"An error occurred while querying the OpenAI API: {e}")
         return None, 0
+
+def query_response_relation(query: str, response: str, model: str = "gpt-4o-mini") -> bool:
+    client = OpenAI()
+    completion = client.chat.completions.create(
+    model=model,
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant that determines if two products or services belong to the same thing or if they refer to the same topic."},
+
+        # Few-shot example 1
+        {"role": "user", "content": "Query: Un lavado de autos\nResponse: Lavadora\n"},
+        {"role": "assistant", "content": "no"},
+
+        {"role": "user", "content": "Query: hamburguesa de queso\nResponse: hamburguesa de carne\n"},
+        {"role": "assistant", "content": "yes"},
+
+        # Few-shot example 2
+        {"role": "user", "content": "Query: Un electrodoméstico\nResponse: Lavavajillas\n"},
+        {"role": "assistant", "content": "yes"},
+
+        # Few-shot example 3
+        {"role": "user", "content": "Query: Un viaje en avión de 1 hora\nResponse: Un viaje en tren de 30 minutos\n"},
+        {"role": "assistant", "content": "no"},
+
+        # Few-shot example 4
+        {"role": "user", "content": "Query: hamburguesa vegana\nResponse: hamburguesa\n"},
+        {"role": "assistant", "content": "yes'"},
+
+        # Few-shot example 5
+        {"role": "user", "content": "Query: manzana verde\nResponse: manzana\n"},
+        {"role": "assistant", "content": "yes"},
+
+        # User's actual prompt
+        {"role": "user", "content": f"Query: {query}\nResponse: {response}"}
+    ]
+
+
+    )
+    response = completion.choices[0].message.content
+    if "yes" in response:
+        return True
+    else:
+        return False

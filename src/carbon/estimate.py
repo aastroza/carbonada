@@ -2,6 +2,7 @@ import pandas as pd
 from carbon.llm import get_industry
 from carbon.schemas import Estimation, Confidence
 from carbon.embed import semantic_similarity_search
+from carbon.llm import query_response_relation
 
 df = pd.read_excel('https://github.com/aastroza/carbonada/raw/master/data/processed/industry.xlsx')
 df['industry'] = [s.replace('\xa0', '').strip() for s in df['industry']]
@@ -26,10 +27,6 @@ def estimate_carbon_footprint_using_industry(industry: str, cost: float = 10, co
 
 def estimate_carbon_footprint_using_products(product: str) -> float:
     estimation  = semantic_similarity_search(product, df_product)
-
-    # if query_response_relation(query, response):
-    #     return response, similarity
-            
     return estimation
 
 def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str = 'gpt-4o-mini-2024-07-18') -> float:
@@ -47,7 +44,11 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
              or None if the industry could not be determined.
     """
     query = estimate_carbon_footprint_using_products(product)
-    if query is None:
+    if query is not None:
+        query_relevance = query_response_relation(product, query.product, model)
+    else:
+        query_relevance = False
+    if query is None or query_relevance is False:
         query, cost = get_industry(product, country, model)
         if query is None:
             return None
@@ -74,21 +75,34 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
     
     return estimation
 
-def estimation_to_string(estimate: Estimation)-> str:
+def estimation_to_string(estimate: Estimation, language: str = 'spanish')-> str:
     """
     Converts an Estimation object into a formatted string that describes the carbon footprint estimation.
     
     :param estimate: Estimation object containing the details of the estimation.
     :return: A formatted string with the estimation details.
     """
-    return (
-        f"The **estimated carbon footprint** of **{estimate.product}** in **{estimate.country}** "
-        f"is **{estimate.carbon_footprint:.2f} kg CO2e**.\n\n"
-        f"This estimate was calculated using data from **{estimate.source}**, "
-        f"which provides information about the carbon footprint per USD "
-        f"({estimate.carbon_footprint_per_USD:.2f}) for the {estimate.industry} industry in {estimate.country}.\n"
-        f"The total cost of the product was estimated by {estimate.model}, "
-        f"amounting to {estimate.cost:.2f} USD.\n\n"
-        f"The reasoning behind this estimate is as follows: {estimate.cost_reasoning}\n\n"
-        f"The estimated carbon footprint of this api query is {estimate.carbon_footprint_call*1000:.3f} g CO2e."
-    )
+    if language == 'spanish':
+        return (
+            f"La **huella de carbono estimada** de **{estimate.product}** en **{estimate.country}** "
+            f"es de **{estimate.carbon_footprint:.2f} kg CO2e**.\n\n"
+            f"Esta estimación se calculó utilizando datos de **{estimate.source}**, "
+            f"que proporciona información sobre la huella de carbono por USD "
+            f"({estimate.carbon_footprint_per_USD:.2f}) para la industria {estimate.industry} en {estimate.country}.\n"
+            f"El costo total del producto fue estimado por {estimate.model}, "
+            f"ascendiendo a {estimate.cost:.2f} USD.\n\n"
+            f"El razonamiento detrás de esta estimación es el siguiente: {estimate.cost_reasoning}\n\n"
+            f"La huella de carbono estimada de esta consulta a la API es {estimate.carbon_footprint_call*1000:.3f} g CO2e."
+        )
+    else:
+        return (
+            f"The **estimated carbon footprint** of **{estimate.product}** in **{estimate.country}** "
+            f"is **{estimate.carbon_footprint:.2f} kg CO2e**.\n\n"
+            f"This estimate was calculated using data from **{estimate.source}**, "
+            f"which provides information about the carbon footprint per USD "
+            f"({estimate.carbon_footprint_per_USD:.2f}) for the {estimate.industry} industry in {estimate.country}.\n"
+            f"The total cost of the product was estimated by {estimate.model}, "
+            f"amounting to {estimate.cost:.2f} USD.\n\n"
+            f"The reasoning behind this estimate is as follows: {estimate.cost_reasoning}\n\n"
+            f"The estimated carbon footprint of this api query is {estimate.carbon_footprint_call*1000:.3f} g CO2e."
+        )
