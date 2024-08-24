@@ -10,7 +10,7 @@ load_dotenv()
 client = OpenAI()
 
 
-def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-embedding-3-small", treshold: List[float] = [0.8, 0.5], top_k: int = 1):
+def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-embedding-3-small", treshold: List[float] = [0.9, 0.8], top_k: int = 1):
     doc_embeddings = df['prod_embedding'].tolist()
 
 
@@ -40,6 +40,7 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
                             cost=0,
                             cost_reasoning="",
                             confidence=Confidence.high,
+                            similarity=top_k_similitudes[0],
                             source=top_k_sources[0],
                             model=model,
             )
@@ -52,9 +53,10 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
                                 carbon_footprint_per_USD=0,
                                 carbon_footprint_call=0,
                                 country="",
-                                cost="",
+                                cost=0,
                                 cost_reasoning="",
                                 confidence=Confidence.medium,
+                                similarity=top_k_similitudes[0],
                                 source=top_k_sources[0],
                                 model=model,
                 )

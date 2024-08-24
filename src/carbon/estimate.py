@@ -65,6 +65,7 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
                         cost=query.cost,
                         cost_reasoning=query.cost_reasoning,
                         confidence=Confidence.low,
+                        similarity=0,
                         source="SWC MRIO Dataset",
                         model=model,
         )

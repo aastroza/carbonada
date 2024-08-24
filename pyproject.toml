@@ -16,6 +16,7 @@ dependencies = [
     "modal>=0.64.52",
     "streamlit>=1.37.1",
     "scikit-learn>=1.5.1",
+    "psycopg2>=2.9.9",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"

@@ -141,5 +141,6 @@ class Estimation(BaseModel):
     cost: float
     cost_reasoning: str
     confidence: Confidence
+    similarity: float
     source: str
     model: str
