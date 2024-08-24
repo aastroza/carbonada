@@ -67,12 +67,13 @@ def estimation_to_string(estimate: Estimation)-> str:
     :return: A formatted string with the estimation details.
     """
     return (
-        f"The estimated carbon footprint of {estimate.product} in {estimate.country} "
-        f"is {estimate.carbon_footprint:.2f} kg CO2e.\n"
-        f"This estimate was calculated using data from {estimate.source}, "
+        f"The **estimated carbon footprint** of **{estimate.product}** in **{estimate.country}** "
+        f"is **{estimate.carbon_footprint:.2f} kg CO2e**.\n\n"
+        f"This estimate was calculated using data from **{estimate.source}**, "
         f"which provides information about the carbon footprint per USD "
         f"({estimate.carbon_footprint_per_USD:.2f}) for the {estimate.industry} industry in {estimate.country}.\n"
         f"The total cost of the product was estimated by {estimate.model}, "
-        f"amounting to {estimate.cost:.2f} USD.\n"
-        f"The reasoning behind this estimate is as follows: {estimate.cost_reasoning}"
+        f"amounting to {estimate.cost:.2f} USD.\n\n"
+        f"The reasoning behind this estimate is as follows: {estimate.cost_reasoning}\n\n"
+        f"The estimated carbon footprint of this api query is {estimate.carbon_footprint_call*1000:.3f} g CO2e."
     )
