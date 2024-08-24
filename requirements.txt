@@ -13,4 +13,3 @@ pandas
 openpyxl
 openai==1.40.0
 python-dotenv
-psycopg2-binary
