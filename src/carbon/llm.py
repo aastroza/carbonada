@@ -31,7 +31,7 @@ def get_industry(product: str, country: str, model: str) -> (IndustryQuery, floa
 
         message = completion.choices[0].message
         if message.parsed:
-            return message.parsed, calculate_cost(completion)
+            return message.parsed, calculate_cost(completion.model, completion.usage.prompt_tokens, completion.usage.completion_tokens)
         else:
             logger.error(f"No parsed response was returned. Refusal message: {message.refusal}")
             return None, 0
