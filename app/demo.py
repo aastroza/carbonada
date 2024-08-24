@@ -1,14 +1,11 @@
 import streamlit as st
 import requests
-import os
 import json
-from dotenv import load_dotenv
 from carbon.estimate import estimation_to_string
 from carbon.schemas import Estimation
 
-load_dotenv()
 
-url = os.getenv("API_URL")
+url = st.secrets["api_url"]
 st.title("Carbonada")
 
 # Text input field
