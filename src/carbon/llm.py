@@ -6,6 +6,13 @@ from carbon.resources import PRICING
 
 load_dotenv()
 
+def check_moderation(query: str) -> bool:
+    client = OpenAI()
+    response = client.moderations.create(input=query)
+    response_dict = response.model_dump()
+    is_flagged = response_dict['results'][0]['flagged']
+    return is_flagged
+
 def calculate_cost(model: str, prompt_tokens: int, completion_tokens: int) -> float:
     prices = PRICING[model]
     return prompt_tokens*prices['input']/1000 + completion_tokens*prices['output']/1000

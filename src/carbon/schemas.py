@@ -1,6 +1,5 @@
 from enum import Enum
 from pydantic import BaseModel, Field
-from carbon.estimate import estimation_to_string
 
 class ProductDatasetEntry(BaseModel):
     product: str
