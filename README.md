@@ -1,4 +1,4 @@
-# Carbon
+# Carbonada
 
 Our project helps people learn about their carbon footprint with a fun game powered by AI. We use LLMs to estimate the carbon impact of different things and create an engaging way to understand and care about the environment.
 
@@ -123,13 +123,14 @@ For more complex queries, such as "an apple and a glass of water," we use functi
 
 ## Game Design
 
-We created an educational game styled like [*Timeline*](https://boardgamegeek.com/boardgame/128664/timeline) focused on the carbon footprint. The frontend code is available [here](https://github.com/Vokturz/carbon-front).
+We have created an educational game inspired by the concept of a *carbonada*, a dish where players add ingredients—anything they can think of. The objective is to stay within a predetermined carbon footprint limit for the dish. The frontend code is available [here](https://github.com/Vokturz/carbon-front).
 
 ### Gameplay
 
-- Players position cards with different concepts on a "carbon line" based on their estimated carbon footprint, with the least carbon-generating items on the left and the most on the right.
-- For example, if an apple is on the left of the screen and a plane trip is on the right, the player needs to think of a concept like a hamburger and place it correctly between the apple and the plane trip.
-- The system uses our carbon footprint estimation model to evaluate the correctness of each move.
+- Each game sets a carbon footprint limit for the *carbonada* dish.
+- Players take turns adding ingredients to the dish. These ingredients can be anything the player can imagine and write down.
+- The system calculates the carbon footprint of each ingredient based on our carbon footprint estimation model.
+- The goal is to avoid exceeding the carbon footprint limit. The player who adds an ingredient that causes the total carbon footprint to surpass the limit loses the game.
 
 ### LLM as a Game Judge
 
