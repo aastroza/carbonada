@@ -8,7 +8,7 @@ from carbon.cache import log_results, cache_results, get_cached_results
 class Query(BaseModel):
     product: str
 
-@app.function(image=image, secrets=[Secret.from_dotenv()])
+@app.function(image=image, secrets=[Secret.from_dotenv()], keep_warm=1)
 @web_endpoint(method="POST")
 def estimate(query: Query):
 
