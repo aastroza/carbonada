@@ -36,17 +36,19 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
     :return: An Estimation object containing details of the carbon footprint estimation, 
              or None if the industry could not be determined.
     """
-    query = get_industry(product, country, model)
+    query, cost = get_industry(product, country, model)
     if query is None:
         return None
     
     carbon_footprint, carbon_footprint_per_USD = estimate_carbon_footprint_using_industry(query.industry.value, query.cost, country)
-    
+    carbon_footprint_call, carbon_footprint_per_USD_call = estimate_carbon_footprint_using_industry("Information Service Activities", cost, country)
+
     estimation = Estimation(
                     product=product,
                     industry=query.industry,
                     carbon_footprint=carbon_footprint,
                     carbon_footprint_per_USD=carbon_footprint_per_USD,
+                    carbon_footprint_call=carbon_footprint_call,
                     country=country,
                     cost=query.cost,
                     cost_reasoning=query.cost_reasoning,
