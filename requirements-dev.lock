@@ -16,6 +16,8 @@ aiosignal==1.3.1
     # via aiohttp
 aiostream==0.5.2
     # via modal
+altair==5.4.0
+    # via streamlit
 annotated-types==0.7.0
     # via pydantic
 anyio==4.4.0
@@ -45,6 +47,10 @@ beautifulsoup4==4.12.3
     # via nbconvert
 bleach==6.1.0
     # via nbconvert
+blinker==1.8.2
+    # via streamlit
+cachetools==5.5.0
+    # via streamlit
 certifi==2024.7.4
     # via httpcore
     # via httpx
@@ -56,6 +62,7 @@ charset-normalizer==3.3.2
     # via requests
 click==8.1.7
     # via modal
+    # via streamlit
     # via typer
 colorama==0.4.6
     # via click
@@ -92,6 +99,10 @@ fqdn==1.5.1
 frozenlist==1.4.1
     # via aiohttp
     # via aiosignal
+gitdb==4.0.11
+    # via gitpython
+gitpython==3.1.43
+    # via streamlit
 grpclib==0.4.7
     # via modal
 h11==0.14.0
@@ -129,10 +140,12 @@ isoduration==20.11.0
 jedi==0.19.1
     # via ipython
 jinja2==3.1.4
+    # via altair
     # via jupyter-server
     # via jupyterlab
     # via jupyterlab-server
     # via nbconvert
+    # via pydeck
 jiter==0.5.0
     # via openai
 json5==0.9.25
@@ -140,6 +153,7 @@ json5==0.9.25
 jsonpointer==3.0.0
     # via jsonschema
 jsonschema==4.23.0
+    # via altair
     # via jupyter-events
     # via jupyterlab-server
     # via nbformat
@@ -210,6 +224,8 @@ multidict==6.0.5
     # via aiohttp
     # via grpclib
     # via yarl
+narwhals==1.5.5
+    # via altair
 nbclient==0.10.0
     # via nbconvert
 nbconvert==7.16.4
@@ -230,6 +246,9 @@ numpy==2.0.1
     # via contourpy
     # via matplotlib
     # via pandas
+    # via pyarrow
+    # via pydeck
+    # via streamlit
 openai==1.40.0
     # via carbon
 openpyxl==3.1.5
@@ -237,6 +256,7 @@ openpyxl==3.1.5
 overrides==7.7.0
     # via jupyter-server
 packaging==24.1
+    # via altair
     # via ipykernel
     # via jupyter-server
     # via jupyterlab
@@ -245,14 +265,17 @@ packaging==24.1
     # via nbconvert
     # via qtconsole
     # via qtpy
+    # via streamlit
 pandas==2.2.2
     # via carbon
+    # via streamlit
 pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.4
     # via jedi
 pillow==10.4.0
     # via matplotlib
+    # via streamlit
 platformdirs==4.2.2
     # via jupyter-core
 prometheus-client==0.20.0
@@ -262,10 +285,13 @@ prompt-toolkit==3.0.47
     # via jupyter-console
 protobuf==4.25.4
     # via modal
+    # via streamlit
 psutil==6.0.0
     # via ipykernel
 pure-eval==0.2.3
     # via stack-data
+pyarrow==17.0.0
+    # via streamlit
 pycparser==2.22
     # via cffi
 pydantic==2.8.2
@@ -273,6 +299,8 @@ pydantic==2.8.2
     # via openai
 pydantic-core==2.20.1
     # via pydantic
+pydeck==0.9.1
+    # via streamlit
 pygments==2.18.0
     # via ipython
     # via jupyter-console
@@ -316,6 +344,7 @@ referencing==0.35.1
     # via jupyter-events
 requests==2.32.3
     # via jupyterlab-server
+    # via streamlit
 rfc3339-validator==0.1.4
     # via jsonschema
     # via jupyter-events
@@ -324,6 +353,7 @@ rfc3986-validator==0.1.1
     # via jupyter-events
 rich==13.7.1
     # via modal
+    # via streamlit
     # via typer
 rpds-py==0.19.0
     # via jsonschema
@@ -341,6 +371,8 @@ six==1.16.0
     # via bleach
     # via python-dateutil
     # via rfc3339-validator
+smmap==5.0.1
+    # via gitdb
 sniffio==1.3.1
     # via anyio
     # via httpx
@@ -351,8 +383,12 @@ stack-data==0.6.3
     # via ipython
 starlette==0.38.2
     # via fastapi
+streamlit==1.37.1
+    # via carbon
 synchronicity==0.7.5
     # via modal
+tenacity==8.5.0
+    # via streamlit
 terminado==0.18.1
     # via jupyter-server
     # via jupyter-server-terminals
@@ -360,12 +396,14 @@ tinycss2==1.3.0
     # via nbconvert
 toml==0.10.2
     # via modal
+    # via streamlit
 tornado==6.4.1
     # via ipykernel
     # via jupyter-client
     # via jupyter-server
     # via jupyterlab
     # via notebook
+    # via streamlit
     # via terminado
 tqdm==4.66.4
     # via openai
@@ -395,11 +433,13 @@ types-toml==0.10.8.20240310
     # via modal
 typing-extensions==4.12.2
     # via aiostream
+    # via altair
     # via fastapi
     # via modal
     # via openai
     # via pydantic
     # via pydantic-core
+    # via streamlit
     # via synchronicity
     # via typer
 tzdata==2024.1
@@ -408,6 +448,8 @@ uri-template==1.3.0
     # via jsonschema
 urllib3==2.2.2
     # via requests
+watchdog==4.0.2
+    # via streamlit
 watchfiles==0.23.0
     # via modal
 wcwidth==0.2.13
