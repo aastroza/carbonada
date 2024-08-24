@@ -2,7 +2,7 @@ import pandas as pd
 from carbon.llm import get_industry
 from carbon.schemas import Estimation, Confidence
 
-df = pd.read_excel('../data/processed/industry.xlsx')
+df = pd.read_excel('https://github.com/aastroza/carbonada/raw/master/data/processed/industry.xlsx')
 df['industry'] = [s.replace('\xa0', '').strip() for s in df['industry']]
 
 def estimate_carbon_footprint_using_industry(industry: str, cost: float = 10, country: str = 'Chile') -> float:
@@ -22,7 +22,7 @@ def estimate_carbon_footprint_using_industry(industry: str, cost: float = 10, co
     return cost*carbon_footprint_per_USD, carbon_footprint_per_USD
 
 
-def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str = 'gpt-4o-2024-08-06') -> float:
+def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str = 'gpt-4o-mini-2024-07-18') -> float:
     """
     Estimates the carbon footprint for a specific product in a given country using a specified model.
 
