@@ -6,10 +6,30 @@ from carbon.resources import PRICING
 
 load_dotenv()
 
+client = OpenAI()
+
+def translate_to_english(text: str) -> str:
+    completion = client.chat.completions.create(
+        model=model,
+        messages=[
+            {
+            "role": "system",
+            "content": "You will be provided with a sentence, and your task is to translate it into English."
+            },
+            {
+            "role": "user",
+            "content": text,
+            }
+        ],
+    )
+    response = completion.choices[0].message.content
+    return response
+
 def check_moderation(query: str) -> bool:
-    client = OpenAI()
-    response = client.moderations.create(input=query)
+    translated_query = translate_to_english(query)
+    response = client.moderations.create(input=f"{translated_query}, but translated to English")
     response_dict = response.model_dump()
+    logger.info(f"Moderation response: {response_dict}")
     is_flagged = response_dict['results'][0]['flagged']
     return is_flagged
 
@@ -18,7 +38,6 @@ def calculate_cost(model: str, prompt_tokens: int, completion_tokens: int) -> fl
     return prompt_tokens*prices['input']/1000 + completion_tokens*prices['output']/1000
 
 def get_industry(product: str, country: str, model: str) -> (IndustryQuery, float):
-    client = OpenAI()
     try:
         completion = client.beta.chat.completions.parse(
             model=model,
@@ -48,7 +67,6 @@ def get_industry(product: str, country: str, model: str) -> (IndustryQuery, floa
         return None, 0
 
 def estimate_raw(product: str, country: str, model: str) -> (RawQuery, float):
-    client = OpenAI()
     try:
         completion = client.beta.chat.completions.parse(
             model=model,
@@ -78,7 +96,6 @@ def estimate_raw(product: str, country: str, model: str) -> (RawQuery, float):
         return None, 0
 
 def query_response_relation(query: str, response: str, model: str = "gpt-4o-mini") -> bool:
-    client = OpenAI()
     completion = client.chat.completions.create(
     model=model,
     messages = [
