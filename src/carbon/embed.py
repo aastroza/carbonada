@@ -53,7 +53,7 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
                             confidence=Confidence.high,
                             similarity=top_k_similitudes[0],
                             source=top_k_sources[0],
-                            explanation = f"La huella de carbono estimada de **{top_k_textos[0]}** es de **{top_k_footprints[0]:.2f} kg CO2e**. Esta estimación es para **{top_k_quantities[0]} {unit}** según los datos de **{top_k_sources[0]}**.",
+                            explanation = f"Esta estimación es para **{top_k_quantities[0]} {unit}** según los datos de **{top_k_sources[0]}**.",
                             model=model,
             )
         return estimation
@@ -71,7 +71,7 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
                                 confidence=Confidence.medium,
                                 similarity=top_k_similitudes[0],
                                 source=top_k_sources[0],
-                                explanation = f"La huella de carbono estimada de **{top_k_textos[0]}** es de **{top_k_footprints[0]:.2f} kg CO2ev**. Esta estimación es para **{top_k_quantities[0]} {unit}** según los datos de **{top_k_sources[0]}**.",
+                                explanation = f"Esta estimación es para **{top_k_quantities[0]} {unit}** según los datos de **{top_k_sources[0]}**.",
                                 model=model,
                 )
         return estimation

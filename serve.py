@@ -10,7 +10,7 @@ from carbon.llm import check_moderation
 class Query(BaseModel):
     product: str
 
-@app.function(image=image, secrets=[Secret.from_dotenv()], keep_warm=1)
+@app.function(image=image, secrets=[Secret.from_dotenv()], keep_warm=5)
 @web_endpoint(method="POST")
 def estimate(query: Query):
     # is_flagged = check_moderation(query.product)
