@@ -23,7 +23,8 @@ def estimate_carbon_footprint_using_industry(industry: str, cost: float = 10, co
     """
     df_country = df[df['country'] == country]
     carbon_footprint_per_USD = df_country[df_country['industry'] == industry]['carbon_footprint_per_USD'].values[0]
-    return cost*carbon_footprint_per_USD, carbon_footprint_per_USD
+    category = df_country[df_country['industry'] == industry]['category'].values[0]
+    return cost*carbon_footprint_per_USD, carbon_footprint_per_USD, category
 
 def estimate_carbon_footprint_using_products(product: str) -> float:
     estimation  = semantic_similarity_search(product, df_product)
@@ -53,8 +54,8 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
         if query is None:
             return None
         
-        carbon_footprint, carbon_footprint_per_USD = estimate_carbon_footprint_using_industry(query.industry.value, query.cost, country)
-        carbon_footprint_call, carbon_footprint_per_USD_call = estimate_carbon_footprint_using_industry("Information Service Activities", cost, country)
+        carbon_footprint, carbon_footprint_per_USD, category = estimate_carbon_footprint_using_industry(query.industry.value, query.cost, country)
+        carbon_footprint_call, carbon_footprint_per_USD_call, category_call = estimate_carbon_footprint_using_industry("Information Service Activities", cost, country)
 
         explanation = (
             f"Esta estimación se calculó utilizando datos del conjunto **SWC MRIO**, "
@@ -67,7 +68,7 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
         estimation = Estimation(
                         product=product,
                         industry=query.industry,
-                        category="otros",
+                        category=category,
                         carbon_footprint=carbon_footprint,
                         carbon_footprint_per_USD=carbon_footprint_per_USD,
                         carbon_footprint_call=carbon_footprint_call,
