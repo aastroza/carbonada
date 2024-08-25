@@ -6,7 +6,7 @@ url = st.secrets["api_url"]
 st.title("Carbonada")
 
 # Text input field
-user_input = st.text_input("What would you like to estimate the carbon footprint of?")
+user_input = st.text_input("¿De qué te gustaría estimar la huella de carbono?")
 
 # Button to submit the text
 if st.button("Estimate!"):
