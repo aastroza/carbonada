@@ -15,7 +15,7 @@ def get_cached_results(query):
                   AND created_at > NOW() - INTERVAL %s
                 ORDER BY created_at DESC
                 LIMIT 1
-            """, (query, "8 hour"))
+            """, (query, "1 minute"))
             cached_result = cur.fetchone()
             if cached_result:
                 return cached_result[0]
