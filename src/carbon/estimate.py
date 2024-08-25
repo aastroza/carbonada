@@ -63,7 +63,7 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
             f"que proporciona información sobre la huella de carbono por USD "
             f"({carbon_footprint_per_USD:.2f}) para la industria *{query.industry.value}* en {country}.\n"
             f"El costo total del producto fue estimado por {model}, "
-            f"ascendiendo a {cost:.2f} USD.\n\n"
+            f"ascendiendo a {query.cost:.2f} USD.\n\n"
             f"El razonamiento detrás de esta estimación es el siguiente: {query.cost_reasoning}\n\n"
             f"La huella de carbono estimada de esta consulta a la API es {carbon_footprint_call*1000:.3f} g CO2e."
         )

@@ -123,7 +123,7 @@ class RawQuery(BaseModel):
 
 class IndustryQuery(BaseModel):
     industry: Industry
-    cost_reasoning: str = Field(..., description="Reasoning behind the estimated cost of the product/service in USD")
+    cost_reasoning: str = Field(..., description="Reasoning behind the estimated cost of the product/service in USD. Respond in spanish.")
     cost: float = Field(..., description="Estimated cost of the product/service in USD")
 
 class Confidence(str, Enum):
