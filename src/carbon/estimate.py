@@ -70,6 +70,7 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
         estimation = Estimation(
                         product=product,
                         industry=query.industry,
+                        category="otros",
                         carbon_footprint=carbon_footprint,
                         carbon_footprint_per_USD=carbon_footprint_per_USD,
                         carbon_footprint_call=carbon_footprint_call,

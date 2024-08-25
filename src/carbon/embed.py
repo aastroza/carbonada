@@ -19,6 +19,7 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
     footprints = df['carbon_footprint'].tolist()
     units = df['Medida'].tolist()
     quantities = df['Cantidad'].tolist()
+    categories = df['category'].tolist()
     # Calcular el embedding del query
     embedding_query = client.embeddings.create(input = [query], model=model).data[0].embedding
     # Calcular la similitud de coseno entre los embeddings de los textos y los embeddings de los tópicos
@@ -32,11 +33,13 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
     top_k_footprints = [footprints[i] for i in top_k_indices]
     top_k_units = [units[i] for i in top_k_indices]
     top_k_quantities = [quantities[i] for i in top_k_indices]
+    top_k_categories = [categories[i].lower() for i in top_k_indices]
 
     if top_k_similitudes[0] >= treshold[0]:
         estimation = Estimation(
                             product=top_k_textos[0],
                             industry="",
+                            category=top_k_categories[0],
                             carbon_footprint=top_k_footprints[0],
                             carbon_footprint_per_USD=0,
                             carbon_footprint_call=0,
@@ -54,6 +57,7 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
         estimation = Estimation(
                                 product=top_k_textos[0],
                                 industry="",
+                                category=top_k_categories[0],
                                 carbon_footprint=top_k_footprints[0],
                                 carbon_footprint_per_USD=0,
                                 carbon_footprint_call=0,

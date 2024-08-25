@@ -8,7 +8,7 @@ load_dotenv()
 
 client = OpenAI()
 
-def translate_to_english(text: str) -> str:
+def translate_to_english(text: str,  model: str = "gpt-4o-mini") -> str:
     completion = client.chat.completions.create(
         model=model,
         messages=[
@@ -27,7 +27,8 @@ def translate_to_english(text: str) -> str:
 
 def check_moderation(query: str) -> bool:
     translated_query = translate_to_english(query)
-    response = client.moderations.create(input=f"{translated_query}, but translated to English")
+    logger.info(f"Translated query: {translated_query}")
+    response = client.moderations.create(input=translated_query)
     response_dict = response.model_dump()
     logger.info(f"Moderation response: {response_dict}")
     is_flagged = response_dict['results'][0]['flagged']

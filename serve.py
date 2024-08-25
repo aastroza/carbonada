@@ -13,10 +13,10 @@ class Query(BaseModel):
 @app.function(image=image, secrets=[Secret.from_dotenv()], keep_warm=1)
 @web_endpoint(method="POST")
 def estimate(query: Query):
-    is_flagged = check_moderation(query.product)
-    logger.info(f"Query flagged: {is_flagged}")
-    if(is_flagged):
-        raise HTTPException(status_code=420, detail="Query was flagged for moderation")
+    # is_flagged = check_moderation(query.product)
+    # logger.info(f"Query flagged: {is_flagged}")
+    # if(is_flagged):
+    #     raise HTTPException(status_code=420, detail="Query was flagged for moderation")
 
     cached_result = get_cached_results(query.product)
     if cached_result:
