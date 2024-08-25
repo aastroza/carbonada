@@ -59,7 +59,7 @@ def estimate_carbon_footprint(product: str, country: str = 'Chile', model: str =
         explanation = (
             f"La **huella de carbono estimada** de **{product}** en **{country}** "
             f"es de **{carbon_footprint:.2f} kg CO2e**.\n\n"
-            f"Esta estimación se calculó utilizando datos de **{source}**, "
+            f"Esta estimación se calculó utilizando datos del conjunto **SWC MRIO**, "
             f"que proporciona información sobre la huella de carbono por USD "
             f"({carbon_footprint_per_USD:.2f}) para la industria {industry} en {country}.\n"
             f"El costo total del producto fue estimado por {model}, "
