@@ -34,6 +34,10 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
     top_k_units = [units[i] for i in top_k_indices]
     top_k_quantities = [quantities[i] for i in top_k_indices]
     top_k_categories = [categories[i].lower() for i in top_k_indices]
+    if top_k_units[0] == 'p':
+        unit = 'unidad'
+    else:
+        unit = top_k_units[0]
 
     if top_k_similitudes[0] >= treshold[0]:
         estimation = Estimation(
@@ -49,7 +53,7 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
                             confidence=Confidence.high,
                             similarity=top_k_similitudes[0],
                             source=top_k_sources[0],
-                            explanation = f"La huella de carbono estimada de **{top_k_textos[0]}** es de **{top_k_footprints[0]} kg CO2e**. Esta estimación es para **{top_k_quantities[0]} {top_k_units[0]}** según los datos de **{top_k_sources[0]}**.",
+                            explanation = f"La huella de carbono estimada de **{top_k_textos[0]}** es de **{top_k_footprints[0]:.2f} kg CO2e**. Esta estimación es para **{top_k_quantities[0]} {unit}** según los datos de **{top_k_sources[0]}**.",
                             model=model,
             )
         return estimation
@@ -67,7 +71,7 @@ def semantic_similarity_search(query: str, df: pd.DataFrame, model: str = "text-
                                 confidence=Confidence.medium,
                                 similarity=top_k_similitudes[0],
                                 source=top_k_sources[0],
-                                explanation = f"La huella de carbono estimada de **{top_k_textos[0]}** es de **{top_k_footprints[0]} kg CO2ev**. Esta estimación es para **{top_k_quantities[0]} {top_k_units[0]}** según los datos de **{top_k_sources[0]}**.",
+                                explanation = f"La huella de carbono estimada de **{top_k_textos[0]}** es de **{top_k_footprints[0]:.2f} kg CO2ev**. Esta estimación es para **{top_k_quantities[0]} {unit}** según los datos de **{top_k_sources[0]}**.",
                                 model=model,
                 )
         return estimation
