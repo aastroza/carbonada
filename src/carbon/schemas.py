@@ -134,6 +134,7 @@ class Confidence(str, Enum):
 class Estimation(BaseModel):
     product: str
     industry: str
+    category: str
     carbon_footprint: float
     carbon_footprint_per_USD: float
     carbon_footprint_call: float
