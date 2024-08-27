@@ -4,7 +4,7 @@ from carbon.schemas import Estimation, Confidence
 from carbon.embed import semantic_similarity_search
 from carbon.llm import query_response_relation
 
-df = pd.read_excel('https://github.com/aastroza/carbonada/raw/master/data/processed/industry.xlsx')
+df = pd.read_excel('https://github.com/aastroza/carbonada/raw/master/data/processed/industry_cleaned.xlsx')
 df['industry'] = [s.replace('\xa0', '').strip() for s in df['industry']]
 
 df_product= pd.read_parquet('https://github.com/aastroza/carbonada/raw/master/data/processed/product_cleaned.parquet')
